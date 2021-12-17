@@ -100,7 +100,17 @@ resource "aws_instance" "myapp-server" {
     associate_public_ip_address = true
     key_name = "jenkins-keypair"
 
-    user_data = file("entry-script.sh")
+    user_data = <<EOF
+    #!/bin/bash
+apt-get update && sudo apt-get install docker.io
+systemctl start docker 
+usermod -aG docker ubuntu
+
+# install docker-compose 
+curl -L "https://github.com/docker/compose/releases/download/2.2.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+chmod +x /usr/local/bin/docker-compose
+
+EOF
 
     tags = {
         Name = "${var.env_prefix}-server"
