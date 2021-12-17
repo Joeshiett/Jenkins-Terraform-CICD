@@ -1,8 +1,8 @@
 terraform {
     required_version = ">= 0.12"
     backend "s3" {
-        bucket = "myapp-bucket"
-        key = "myapp/state.tfstate"
+        bucket = "wordpress-bucket-joe"
+        key = "wordpress-state/state.tfstate"
         region = "eu-west-1"
     }
 }
