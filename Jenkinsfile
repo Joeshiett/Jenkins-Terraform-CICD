@@ -36,7 +36,7 @@ pipeline {
                    echo 'deploying WordPress to Dev...'
                    echo "${EC2_PUBLIC_IP}"
 
-                   def shellCmd = "bash ./server-cmds.sh ${IMAGE_NAME} ${DOCKER_CREDS_USR} ${DOCKER_CREDS_PSW}"
+                   def shellCmd = "bash ./server-cmds.sh ${DOCKER_CREDS_USR} ${DOCKER_CREDS_PSW}"
                    def ec2Instance = "ubuntu@${EC2_PUBLIC_IP}"
 
                    sshagent(['server-ssh-key']) {
