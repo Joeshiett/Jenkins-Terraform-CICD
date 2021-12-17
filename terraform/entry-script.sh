@@ -1,5 +1,4 @@
 #!/bin/bash
-
 apt-get update && sudo apt-get install docker.io
 systemctl start docker 
 usermod -aG docker ubuntu
