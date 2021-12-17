@@ -31,7 +31,7 @@ pipeline {
             steps {
                 script {
                    echo "waiting for EC2 to initialize" 
-                   sleep(time: 90, unit: "SECONDS") 
+                   sleep(time: 10, unit: "SECONDS") 
 
                    echo 'deploying WordPress to Dev...'
                    echo "${EC2_PUBLIC_IP}"
