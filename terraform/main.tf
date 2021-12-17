@@ -53,7 +53,7 @@ resource "aws_default_security_group" "default-sg" {
         from_port = 22
         to_port = 22
         protocol = "tcp"
-        cidr_blocks = [var.my_ip, var.jenkins_ip]
+        cidr_blocks = ["0.0.0.0/0"]
     }
 
     ingress {
@@ -98,7 +98,7 @@ resource "aws_instance" "myapp-server" {
     availability_zone = var.avail_zone
 
     associate_public_ip_address = true
-    key_name = "myapp-key-pair"
+    key_name = "jenkins"
 
     user_data = file("entry-script.sh")
 
