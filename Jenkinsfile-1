@@ -17,10 +17,12 @@ pipeline {
                remote.host = "34.134.85.50"
                remote.allowAnyHosts = true
 
-               withCredentials([sshUserPrivateKey(credentialsId: 'gcp-key', keyFileVariable: 'keyfile', usernameVariable: 'user')])
+               withCredentials([sshUserPrivateKey(credentialsId: 'gcp-key', keyFileVariable: 'keyfile', usernameVariable: 'user')]) {
                     remote.user = user
                     remote.identityFile = keyfile
                     sshCommand remote: remote, command: "ls -l"
+               }
+                   
            }
           }
        
