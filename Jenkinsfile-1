@@ -14,7 +14,7 @@ pipeline {
                echo "Configuring Server"
                def remote = [:]
                remote.name = "dev-server"
-               remote.host = "34.134.85.50"
+               remote.host = "104.154.39.1"
                remote.allowAnyHosts = true
 
                withCredentials([sshUserPrivateKey(credentialsId: 'gcp-key', keyFileVariable: 'keyfile', usernameVariable: 'user')]) {
